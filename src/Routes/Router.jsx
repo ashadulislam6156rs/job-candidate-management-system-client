@@ -3,6 +3,7 @@ import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
+import ImportExcel from "../Pages/Staff/ImportExcel";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "/import-file",
+        element: <ImportExcel></ImportExcel>,
       },
     ],
   },

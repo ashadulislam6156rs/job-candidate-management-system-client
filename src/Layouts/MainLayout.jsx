@@ -2,9 +2,7 @@ import React from "react";
 import { Outlet, useNavigation } from "react-router";
 import Navbar from "../Componants/Shared/Navbar/Navbar";
 import Footer from "../Componants/Shared/Footer/Footer";
-
-// import { ToastContainer } from "react-toastify";
-
+import { ToastContainer } from "react-toastify";
 
 const MainLayout = () => {
   const navigatation = useNavigation();
@@ -23,7 +21,7 @@ const MainLayout = () => {
       <footer className="w-full mx-auto bg-[#fdf7e4]">
         <Footer></Footer>
       </footer>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };
