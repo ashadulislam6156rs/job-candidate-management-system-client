@@ -1,7 +1,13 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
+import useRole from "../../../Hooks/useRole";
 
 const Navbar = () => {
+
+  const { user } = useAuth();
+  const { role } = useRole();
+
   return (
     <div className="navbar bg-base-100 max-w-7xl mx-auto px-4">
       {/* Navbar Start */}
@@ -71,7 +77,7 @@ const Navbar = () => {
               <summary>Manage</summary>
               <ul className="p-2 bg-base-100 w-44 z-[1]">
                 <li>
-                  <a>Import Excel</a>
+                  <NavLink to={"/import-file"}>Import Excel</NavLink>
                 </li>
                 <li>
                   <a>Users</a>
@@ -88,13 +94,26 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end gap-2">
-        <span className="hidden sm:block text-sm">Admin</span>
-        <Link to={"/register"} className="btn btn-secondary btn-sm text-white">
-          Registation
-        </Link>
-        <Link to={"/login"} className="btn btn-error btn-sm text-white">
-          LogIn
-        </Link>
+        {user ? (
+          <>
+            <span className="hidden sm:block text-sm">{role}</span>
+            <button className="btn btn-secondary btn-sm text-white">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              to={"/register"}
+              className="btn btn-secondary btn-sm text-white"
+            >
+              Registation
+            </Link>
+            <Link to={"/login"} className="btn btn-error btn-sm text-white">
+              LogIn
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

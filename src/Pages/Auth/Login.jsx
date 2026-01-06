@@ -40,7 +40,7 @@ const Login = () => {
              fullName: res.user.displayName,
              photoURL: res.user.photoURL,
              email: res.user.email,
-             userRole: "Student",
+             userRole: "Staff",
            };
            axiosSecure.post("/users", userData).then(() => {
              navigate(location?.state || "/");
